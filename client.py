@@ -13,6 +13,11 @@ with open("data.json") as jsonFile:
     jsonRead = json.load(jsonFile)
     jsonWrite = json.dump
     jsonFile.close()
+    
+with open("data.json", "w") as f:
+    jsonRead["OS"] = lang
+    json.dump(jsonRead, f, indent=4)
+    f.close()
 
 def setup():
     if len(jsonRead['OS']) == 0:
